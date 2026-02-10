@@ -1,4 +1,5 @@
 import { WEATHER_TYPES } from './weather';
+import mustardSeedImage from '../assets/myimage/Mustard-Seeds.webp';
 
 export const SEEDS = [
     {
@@ -37,7 +38,7 @@ export const SEEDS = [
     {
         id: 4,
         name: 'Mustard Seeds',
-        image: 'https://images.unsplash.com/photo-1508595165502-3e911b94286c?auto=format&fit=crop&q=80&w=600',
+        image: mustardSeedImage,
         suitableWeather: [WEATHER_TYPES.COLD.id, WEATHER_TYPES.MODERATE.id],
         tempRange: '10°C - 25°C',
         soilType: 'Loamy',

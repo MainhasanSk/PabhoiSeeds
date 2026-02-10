@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
+import logo from '../assets/myimage/logo.png';
 
 const Footer = () => {
     return (
@@ -9,7 +10,7 @@ const Footer = () => {
 
                     {/* Brand */}
                     <div>
-                        <h3 style={{ color: 'var(--color-primary)', marginBottom: '16px' }}>Pabhoi Organic Seeds</h3>
+                        <img src={logo} alt="Pabhoi Organic Seeds" style={{ height: '80px', marginBottom: '16px' }} />
                         <p style={{ color: '#aaa', lineHeight: 1.6, marginBottom: '24px' }}>
                             Empowering farmers with climate-resilient organic seeds.
                             Grown with care directly from our fields to yours.

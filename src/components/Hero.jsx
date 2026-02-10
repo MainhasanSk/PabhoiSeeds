@@ -1,120 +1,142 @@
 import React from 'react';
-import { MapPin, ArrowRight } from 'lucide-react';
+import { MapPin, ArrowRight, CheckCircle } from 'lucide-react';
 import { useWeather } from '../context/WeatherContext';
+import heroImage from '../assets/myimage/hero-section-image.svg';
 
 const Hero = ({ onOpenLocationModal }) => {
-    const { location, weatherType } = useWeather();
-
-    // Dynamic background based on weather if detected, else generic
-    const bgImage = weatherType
-        ? (weatherType.id === 'rainy_humid' ? 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&q=80&w=1920' :
-            weatherType.id === 'hot_dry' ? 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1920' :
-                'https://images.unsplash.com/photo-1625246333195-09d9b63bd48a?auto=format&fit=crop&q=80&w=1920')
-        : 'https://images.unsplash.com/photo-1492496913980-501308b7eb83?auto=format&fit=crop&q=80&w=1920';
+    const { location } = useWeather();
 
     return (
         <section style={{
             position: 'relative',
-            height: '600px',
-            display: 'flex',
-            alignItems: 'center',
-            color: 'white',
+            padding: '80px 0',
+            backgroundColor: '#F3F4F6', // Light gray background
             overflow: 'hidden'
         }}>
-            {/* Background with Overlay */}
-            <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                backgroundImage: `url('${bgImage}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                zIndex: -1
-            }} />
-            <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                backgroundColor: 'rgba(0, 0, 0, 0.4)', // Dark overlay
-                zIndex: -1
-            }} />
+            <div className="container">
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: '64px',
+                    alignItems: 'center'
+                }}>
+                    {/* Left Side: Content */}
+                    <div className="animate-fade-in" style={{ zIndex: 2 }}>
+                        <div style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            backgroundColor: 'white',
+                            padding: '8px 16px',
+                            borderRadius: 'var(--radius-full)',
+                            marginBottom: '24px',
+                            boxShadow: 'var(--shadow-sm)',
+                            border: '1px solid #E5E7EB'
+                        }}>
+                            <MapPin size={16} color="var(--color-primary)" />
+                            <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--color-text-muted)' }}>
+                                {location ? `${location.name} • ${location.weather}` : 'Localization Inactive'}
+                            </span>
+                        </div>
 
-            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ maxWidth: '600px' }} className="animate-fade-in">
-                    <div style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                        backdropFilter: 'blur(4px)',
-                        padding: '8px 16px',
-                        borderRadius: 'var(--radius-full)',
-                        marginBottom: '24px',
-                        border: '1px solid rgba(255, 255, 255, 0.3)'
-                    }}>
-                        <MapPin size={16} color="#81C784" />
-                        <span style={{ fontSize: '14px', fontWeight: 600 }}>
-                            {location ? `${location.name} • ${location.weather}` : 'Localization Inactive'}
-                        </span>
+                        <h1 style={{
+                            fontSize: '3.5rem',
+                            marginBottom: '24px',
+                            color: 'var(--color-text)',
+                            lineHeight: 1.1,
+                            letterSpacing: '-1px'
+                        }}>
+                            Grow Smarter with <br />
+                            <span style={{ color: 'var(--color-primary)' }}>Climate-Based</span> Farming
+                        </h1>
+
+                        <p style={{
+                            fontSize: '1.25rem',
+                            marginBottom: '40px',
+                            color: 'var(--color-text-muted)',
+                            maxWidth: '540px',
+                            lineHeight: 1.6
+                        }}>
+                            Discover organic seeds perfectly matched to your local weather and soil conditions. Validated by science, trusted by farmers.
+                        </p>
+
+                        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                            {!location ? (
+                                <button
+                                    onClick={onOpenLocationModal}
+                                    className="btn btn-primary"
+                                    style={{ padding: '16px 32px', fontSize: '1.1rem', boxShadow: '0 4px 14px rgba(46, 125, 50, 0.3)' }}
+                                >
+                                    Get Local Recommendations <ArrowRight size={20} style={{ marginLeft: '8px' }} />
+                                </button>
+                            ) : (
+                                <button
+                                    className="btn btn-primary"
+                                    style={{ padding: '16px 32px', fontSize: '1.1rem', boxShadow: '0 4px 14px rgba(46, 125, 50, 0.3)' }}
+                                >
+                                    Explore Your Seeds <ArrowRight size={20} style={{ marginLeft: '8px' }} />
+                                </button>
+                            )}
+
+                            <button className="btn" style={{
+                                backgroundColor: 'white',
+                                border: '1px solid #E5E7EB',
+                                color: 'var(--color-text)',
+                                padding: '16px 32px',
+                                fontSize: '1.1rem'
+                            }}>
+                                View Catalog
+                            </button>
+                        </div>
+
+                        {/* Trust Badges */}
+                        <div style={{ marginTop: '48px', display: 'flex', gap: '32px', borderTop: '1px solid #E5E7EB', paddingTop: '32px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <CheckCircle size={20} color="var(--color-primary)" />
+                                <span style={{ fontWeight: 600, fontSize: '14px' }}>100% Organic</span>
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <CheckCircle size={20} color="var(--color-primary)" />
+                                <span style={{ fontWeight: 600, fontSize: '14px' }}>Scientifically Tested</span>
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <CheckCircle size={20} color="var(--color-primary)" />
+                                <span style={{ fontWeight: 600, fontSize: '14px' }}>Expert Support</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <h1 style={{
-                        fontSize: '3.5rem',
-                        marginBottom: '16px',
-                        color: 'white',
-                        lineHeight: 1.1,
-                        textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-                    }}>
-                        Grow Smarter with <span style={{ color: '#81C784' }}>Climate-Based</span> Recommendations
-                    </h1>
-
-                    <p style={{
-                        fontSize: '1.25rem',
-                        marginBottom: '32px',
-                        opacity: 0.9,
-                        maxWidth: '500px'
-                    }}>
-                        Discover organic seeds perfectly matched to your local weather and soil conditions for maximum yield.
-                    </p>
-
-                    {!location ? (
-                        <button
-                            onClick={onOpenLocationModal}
-                            className="btn btn-primary"
-                            style={{ padding: '16px 32px', fontSize: '1.1rem' }}
-                        >
-                            Get Local Recommendations <ArrowRight size={20} style={{ marginLeft: '8px' }} />
-                        </button>
-                    ) : (
-                        <button
-                            className="btn btn-primary"
-                            style={{ padding: '16px 32px', fontSize: '1.1rem', backgroundColor: 'white', color: 'var(--color-primary)' }}
-                        >
-                            Explore Your Seeds <ArrowRight size={20} style={{ marginLeft: '8px' }} />
-                        </button>
-                    )}
-
-                    {/* Stats / Trust Badges */}
-                    <div style={{ marginTop: '48px', display: 'flex', gap: '48px' }}>
-                        <div>
-                            <div style={{ fontSize: '24px', fontWeight: 'bold' }}>100%</div>
-                            <div style={{ fontSize: '14px', opacity: 0.8 }}>Organic</div>
-                        </div>
-                        <div>
-                            <div style={{ fontSize: '24px', fontWeight: 'bold' }}>50+</div>
-                            <div style={{ fontSize: '14px', opacity: 0.8 }}>Varieties</div>
-                        </div>
-                        <div>
-                            <div style={{ fontSize: '24px', fontWeight: 'bold' }}>24/7</div>
-                            <div style={{ fontSize: '14px', opacity: 0.8 }}>Expert Support</div>
-                        </div>
+                    {/* Right Side: Image */}
+                    <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+                        <img
+                            src={heroImage}
+                            alt="Climate-Based Farming"
+                            style={{
+                                width: '100%',
+                                maxWidth: '600px',
+                                height: 'auto',
+                                objectFit: 'contain'
+                            }}
+                        />
                     </div>
                 </div>
             </div>
+
+            {/* Mobile Responsiveness Style */}
+            <style>{`
+                @media (max-width: 968px) {
+                    .container > div {
+                        grid-template-columns: 1fr !important;
+                        gap: 40px !important;
+                    }
+                    h1 {
+                        font-size: 2.5rem !important;
+                    }
+                    .hero-image-container {
+                        height: 400px !important;
+                    }
+                }
+            `}</style>
         </section>
     );
 };

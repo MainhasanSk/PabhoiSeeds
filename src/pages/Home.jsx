@@ -9,6 +9,7 @@ import Footer from '../components/Footer';
 import { useWeather } from '../context/WeatherContext';
 import { SEEDS } from '../data/seeds';
 import { ArrowRight } from 'lucide-react';
+import trustImage from '../assets/myimage/IMG-20200224-WA0006.avif';
 
 const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -83,7 +84,7 @@ const Home = () => {
                     <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center' }}>
                         <div>
                             <img
-                                src="https://images.unsplash.com/photo-1595839088487-7890ddb89693?auto=format&fit=crop&q=80&w=800"
+                                src={trustImage}
                                 alt="Farmer in field"
                                 style={{ width: '100%', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-lg)' }}
                             />

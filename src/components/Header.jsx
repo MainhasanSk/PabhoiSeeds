@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Search, ShoppingCart, Menu, X, Sprout } from 'lucide-react';
+import { Search, ShoppingCart, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/myimage/logo.png';
 
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,16 +20,11 @@ const Header = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                height: '70px'
+                height: '80px'
             }}>
                 {/* Logo */}
                 <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-                    <div style={{ backgroundColor: 'var(--color-primary)', padding: '8px', borderRadius: '50%', display: 'flex' }}>
-                        <Sprout size={24} color="white" />
-                    </div>
-                    <h1 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--color-primary-dark)', margin: 0, letterSpacing: '-0.5px' }}>
-                        Pabhoi<span style={{ color: 'var(--color-secondary)' }}>Seeds</span>
-                    </h1>
+                    <img src={logo} alt="Pabhoi Seeds" style={{ height: '60px' }} />
                 </Link>
 
                 {/* Desktop Navigation */}

@@ -76,6 +76,40 @@ const Chatbot = () => {
                 {isOpen ? <X size={28} /> : <MessageCircle size={28} />}
             </button>
 
+            {/* Blinking Text Label */}
+            {!isOpen && (
+                <>
+                    <div style={{
+                        position: 'fixed',
+                        bottom: '35px',
+                        right: '95px',
+                        backgroundColor: 'white',
+                        padding: '8px 16px',
+                        borderRadius: '20px',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                        zIndex: 900,
+                        animation: 'pulse-fade 2s infinite',
+                        pointerEvents: 'none'
+                    }}>
+                        <span style={{
+                            color: 'var(--color-primary)',
+                            fontWeight: 'bold',
+                            fontSize: '14px',
+                            whiteSpace: 'nowrap'
+                        }}>
+                            Pabhoi AI Krishi Mitra
+                        </span>
+                    </div>
+                    <style>{`
+                        @keyframes pulse-fade {
+                            0% { opacity: 1; transform: scale(1); }
+                            50% { opacity: 0.8; transform: scale(0.98); }
+                            100% { opacity: 1; transform: scale(1); }
+                        }
+                    `}</style>
+                </>
+            )}
+
             {/* Chat Window */}
             {isOpen && (
                 <div style={{
