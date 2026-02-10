@@ -28,7 +28,7 @@ const WeatherGuide = () => {
                 </div>
 
                 <div className="container" style={{ padding: '64px 24px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '48px' }}>
+                    <div className="weather-grid">
                         {Object.values(WEATHER_TYPES).map(type => (
                             <div key={type.id} className="weather-card" style={{
                                 backgroundColor: 'white',
@@ -60,18 +60,6 @@ const WeatherGuide = () => {
                     </div>
                 </div>
             </main>
-
-            <style>{`
-                .weather-card {
-                    box-shadow: var(--shadow-md);
-                    transition: all 0.3s ease;
-                    cursor: default;
-                }
-                .weather-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: var(--shadow-lg);
-                }
-            `}</style>
             <Footer />
             <Chatbot />
         </>

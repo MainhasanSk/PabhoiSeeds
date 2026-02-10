@@ -11,6 +11,8 @@ import { useWeather } from '../context/WeatherContext';
 import { SEEDS } from '../data/seeds';
 import { ArrowRight } from 'lucide-react';
 import trustImage from '../assets/myimage/rotated-in-trust.avif';
+import JoinFamilySection from '../components/JoinFamilySection';
+import WeatherGuideSection from '../components/WeatherGuideSection';
 
 const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -81,6 +83,37 @@ const Home = () => {
                     )}
                 </section>
 
+                {/* Why Choose Pabhoi Section */}
+                <section style={{ padding: '80px 24px', backgroundColor: '#FAFAF5' }}>
+                    <div className="container">
+                        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+                            <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: 'var(--color-primary-dark)' }}>
+                                Why Choose Pabhoi Seeds?
+                            </h2>
+                            <p style={{ color: '#666', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
+                                We are committed to providing the highest quality organic seeds for your farming success.
+                            </p>
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '32px' }}>
+                            <div className="feature-card" style={{ padding: '32px', backgroundColor: '#F1F8E9', borderRadius: 'var(--radius-lg)' }}>
+                                <h3 style={{ fontSize: '1.4rem', marginBottom: '12px' }}>100% Organic</h3>
+                                <p style={{ color: '#666' }}>Certified organic seeds free from GMOs and chemical treatments.</p>
+                            </div>
+                            <div className="feature-card" style={{ padding: '32px', backgroundColor: '#FFF3E0', borderRadius: 'var(--radius-lg)' }}>
+                                <h3 style={{ fontSize: '1.4rem', marginBottom: '12px' }}>Climate Resilient</h3>
+                                <p style={{ color: '#666' }}>Varieties selected specifically for Indian weather patterns.</p>
+                            </div>
+                            <div className="feature-card" style={{ padding: '32px', backgroundColor: '#E1F5FE', borderRadius: 'var(--radius-lg)' }}>
+                                <h3 style={{ fontSize: '1.4rem', marginBottom: '12px' }}>Farmer Support</h3>
+                                <p style={{ color: '#666' }}>We provide growing guides and expert advice for every seed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <WeatherGuideSection />
+
                 {/* Brand Promise Section (Visual Filler) */}
                 <section style={{ backgroundColor: '#EFEBE9', padding: '80px 0' }}>
                     <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center' }}>
@@ -104,12 +137,16 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
+
+
             </main>
+
+            <JoinFamilySection />
 
             <Footer />
             <Chatbot />
             <LocationModal isOpen={isModalOpen} onClose={handleCloseModal} />
-        </div>
+        </div >
     );
 };
 

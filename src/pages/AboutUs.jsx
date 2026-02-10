@@ -76,17 +76,6 @@ const AboutUs = () => {
                         </div>
                     </div>
                 </div>
-
-                <style>{`
-                    .feature-card {
-                        transition: all 0.3s ease;
-                        cursor: default;
-                    }
-                    .feature-card:hover {
-                        transform: translateY(-8px);
-                        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                    }
-                `}</style>
             </main>
             <Footer />
             <Chatbot />
