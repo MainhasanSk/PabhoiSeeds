@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Chatbot from '../components/Chatbot';
 
+import aboutUsImage from '../assets/myimage/about-us.avif';
+
 const AboutUs = () => {
     return (
         <>
@@ -49,8 +51,8 @@ const AboutUs = () => {
                         </div>
                         <div>
                             <img
-                                src="https://images.unsplash.com/photo-1625246333195-09d9b63bd716?auto=format&fit=crop&q=80&w=800"
-                                alt="Hands holding seeds"
+                                src={aboutUsImage}
+                                alt="Our Story - Pabhoi Seeds"
                                 style={{ width: '100%', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-lg)' }}
                             />
                         </div>
@@ -59,21 +61,32 @@ const AboutUs = () => {
                     <div style={{ marginTop: '96px', textAlign: 'center' }}>
                         <h2 style={{ fontSize: '2.5rem', marginBottom: '48px', color: 'var(--color-primary-dark)' }}>Why Choose Us?</h2>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '32px' }}>
-                            <div style={{ padding: '32px', backgroundColor: '#F1F8E9', borderRadius: 'var(--radius-lg)' }}>
+                            <div className="feature-card" style={{ padding: '32px', backgroundColor: '#F1F8E9', borderRadius: 'var(--radius-lg)' }}>
                                 <h3 style={{ fontSize: '1.4rem', marginBottom: '12px' }}>100% Organic</h3>
                                 <p style={{ color: '#666' }}>Certified organic seeds free from GMOs and chemical treatments.</p>
                             </div>
-                            <div style={{ padding: '32px', backgroundColor: '#FFF3E0', borderRadius: 'var(--radius-lg)' }}>
+                            <div className="feature-card" style={{ padding: '32px', backgroundColor: '#FFF3E0', borderRadius: 'var(--radius-lg)' }}>
                                 <h3 style={{ fontSize: '1.4rem', marginBottom: '12px' }}>Climate Resilient</h3>
                                 <p style={{ color: '#666' }}>Varieties selected specifically for Indian weather patterns.</p>
                             </div>
-                            <div style={{ padding: '32px', backgroundColor: '#E1F5FE', borderRadius: 'var(--radius-lg)' }}>
+                            <div className="feature-card" style={{ padding: '32px', backgroundColor: '#E1F5FE', borderRadius: 'var(--radius-lg)' }}>
                                 <h3 style={{ fontSize: '1.4rem', marginBottom: '12px' }}>Farmer Support</h3>
                                 <p style={{ color: '#666' }}>We provide growing guides and expert advice for every seed.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <style>{`
+                    .feature-card {
+                        transition: all 0.3s ease;
+                        cursor: default;
+                    }
+                    .feature-card:hover {
+                        transform: translateY(-8px);
+                        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                    }
+                `}</style>
             </main>
             <Footer />
             <Chatbot />

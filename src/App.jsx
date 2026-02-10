@@ -5,6 +5,7 @@ import ProductDetailsPage from './pages/ProductDetailsPage';
 import Seeds from './pages/Seeds';
 import WeatherGuide from './pages/WeatherGuide';
 import AboutUs from './pages/AboutUs';
+import PopupForm from './components/PopupForm';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/weather-guide" element={<WeatherGuide />} />
           <Route path="/about" element={<AboutUs />} />
         </Routes>
+        <PopupForm />
       </div>
     </Router>
   );

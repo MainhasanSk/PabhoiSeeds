@@ -1,7 +1,10 @@
 import React from 'react';
-import { MapPin, ArrowRight, CheckCircle } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
 import { useWeather } from '../context/WeatherContext';
 import heroImage from '../assets/myimage/hero-section-image.svg';
+import indiaOrganic from '../assets/myimage/India_organic.jpg';
+import controlImo from '../assets/myimage/control-imo.jpg';
+import demeter from '../assets/myimage/demeter.png';
 
 const Hero = ({ onOpenLocationModal }) => {
     const { location } = useWeather();
@@ -89,19 +92,15 @@ const Hero = ({ onOpenLocationModal }) => {
                             </button>
                         </div>
 
-                        {/* Trust Badges */}
-                        <div style={{ marginTop: '48px', display: 'flex', gap: '32px', borderTop: '1px solid #E5E7EB', paddingTop: '32px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <CheckCircle size={20} color="var(--color-primary)" />
-                                <span style={{ fontWeight: 600, fontSize: '14px' }}>100% Organic</span>
-                            </div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <CheckCircle size={20} color="var(--color-primary)" />
-                                <span style={{ fontWeight: 600, fontSize: '14px' }}>Scientifically Tested</span>
-                            </div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <CheckCircle size={20} color="var(--color-primary)" />
-                                <span style={{ fontWeight: 600, fontSize: '14px' }}>Expert Support</span>
+                        {/* Certified By Logos */}
+                        <div style={{ marginTop: '48px', borderTop: '1px solid #E5E7EB', paddingTop: '32px' }}>
+                            <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--color-text-muted)', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                                Certified By
+                            </p>
+                            <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
+                                <img src={indiaOrganic} alt="India Organic" style={{ height: '50px', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+                                <img src={controlImo} alt="Control Union" style={{ height: '50px', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+                                <img src={demeter} alt="Demeter" style={{ height: '40px', objectFit: 'contain', mixBlendMode: 'multiply' }} />
                             </div>
                         </div>
                     </div>

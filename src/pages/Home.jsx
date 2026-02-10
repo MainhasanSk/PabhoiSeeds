@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
+import Partners from '../components/Partners';
 import LocationModal from '../components/LocationModal';
 import WeatherFilter from '../components/WeatherFilter';
 import ProductCard from '../components/ProductCard';
@@ -9,7 +10,7 @@ import Footer from '../components/Footer';
 import { useWeather } from '../context/WeatherContext';
 import { SEEDS } from '../data/seeds';
 import { ArrowRight } from 'lucide-react';
-import trustImage from '../assets/myimage/IMG-20200224-WA0006.avif';
+import trustImage from '../assets/myimage/rotated-in-trust.avif';
 
 const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,6 +42,7 @@ const Home = () => {
 
             <main>
                 <Hero onOpenLocationModal={() => setIsModalOpen(true)} />
+                <Partners />
 
                 <section className="container" style={{ padding: '64px 24px' }}>
                     <div style={{ textAlign: 'center', marginBottom: '48px' }}>
